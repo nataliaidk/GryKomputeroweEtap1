@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b5iaufb25d6mn"]
+
+[ext_resource type="Script" uid="uid://cblxw8ufmlbf7" path="res://scripts/weapon_whip.gd" id="1_k446h"]
+[ext_resource type="PackedScene" uid="uid://bdbk4dmfbh01k" path="res://scenes/whip_slash.tscn" id="2_vqf4o"]
+
+[node name="WeaponWhip" type="Node2D" unique_id=1361749264]
+script = ExtResource("1_k446h")
+slash_scene = ExtResource("2_vqf4o")
+
+[node name="Timer" type="Timer" parent="." unique_id=2052423000]

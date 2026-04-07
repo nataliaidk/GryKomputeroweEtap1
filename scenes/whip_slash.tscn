@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bdbk4dmfbh01k"]
+
+[ext_resource type="Script" uid="uid://dr8fp54m3b72g" path="res://scripts/whip_slash.gd" id="1_va785"]
+[ext_resource type="Texture2D" uid="uid://4yqx8nujhcgk" path="res://assets/sprites/Slash.png" id="2_djx3l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7t58a"]
+radius = 18.0
+height = 190.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63ai5"]
+atlas = ExtResource("2_djx3l")
+region = Rect2(0, 0, 768, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goope"]
+atlas = ExtResource("2_djx3l")
+region = Rect2(768, 0, 768, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw705"]
+atlas = ExtResource("2_djx3l")
+region = Rect2(0, 300, 768, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unofs"]
+atlas = ExtResource("2_djx3l")
+region = Rect2(768, 300, 768, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fv6xp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63ai5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goope")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw705")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unofs")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}]
+
+[node name="WhipSlash" type="Area2D" unique_id=777547543]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_va785")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=242429814]
+position = Vector2(94, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7t58a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=634295731]
+position = Vector2(125.6875, -12.687502)
+scale = Vector2(0.36018884, 0.30458334)
+sprite_frames = SubResource("SpriteFrames_fv6xp")
+animation = &"attack"
+frame = 3
+frame_progress = 1.0

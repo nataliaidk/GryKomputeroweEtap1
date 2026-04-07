@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://02om5o3vpdgb"]
+
+[ext_resource type="Texture2D" uid="uid://dofwk7gowuh66" path="res://assets/weapons/whip.png" id="1_1f4gc"]
+[ext_resource type="Script" uid="uid://hp4souuetdmb" path="res://scripts/weapon_data.gd" id="2_mfcgi"]
+[ext_resource type="PackedScene" uid="uid://b5iaufb25d6mn" path="res://scenes/weapon_whip.tscn" id="3_bptgk"]
+
+[resource]
+script = ExtResource("2_mfcgi")
+name = "Whip"
+damage = 35
+icon = ExtResource("1_1f4gc")
+weapon_scene = ExtResource("3_bptgk")
+metadata/_custom_type_script = "uid://hp4souuetdmb"
