@@ -1,0 +1,72 @@
+extends CharacterBody2D
+
+signal exp_gained(amount: int)
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera := $Camera2D
+@onready var health_bar: TextureProgressBar = $TextureProgressBar
+@onready var weapon_manager: WeaponManager = $WeaponManager
+@onready var leveling: Node = $PlayerLeveling
+@onready var ui: Node = $PlayerUI
+
+var speed := 200.0
+var max_health := 100
+var health := max_health
+var is_dead := false
+var facing_direction := Vector2.DOWN
+var is_attacking := false
+
+func _ready():
+	camera.make_current()
+	health_bar.value = health
+	health_bar.max_value = max_health
+	var whip_data = load("res://data/whip_data.tres")
+	weapon_manager.add_weapon(whip_data)
+	GameTimer.start()
+
+func _physics_process(_delta):
+	if is_dead:
+		return
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if direction != Vector2.ZERO:
+		facing_direction = direction.normalized()
+	velocity = Vector2.ZERO if is_attacking else direction * speed
+	move_and_slide()
+	update_animation(direction if not is_attacking else Vector2.ZERO)
+
+func update_animation(direction: Vector2):
+	if is_attacking or direction == Vector2.ZERO:
+		sprite.play("idle")
+		return
+	if abs(direction.x) > abs(direction.y):
+		sprite.play("walk_right" if direction.x > 0 else "walk_left")
+	else:
+		sprite.play("walk_down" if direction.y > 0 else "walk_up")
+
+func take_damage(attack: Attack):
+	if is_dead:
+		return
+	health -= attack.damage
+	health_bar.value = health
+	if health <= 0:
+		die()
+
+func heal(amount: int):
+	health = min(max_health, health + amount)
+	health_bar.value = health
+
+func die():
+	is_dead = true
+	is_attacking = false
+	velocity = Vector2.ZERO
+	sprite.play("die")
+	weapon_manager.disable_all()
+
+func gain_blood_exp(amount: int):
+	if is_dead or amount <= 0:
+		return
+	exp_gained.emit(amount)
+
+func get_level() -> int:
+	return leveling.player_level
+	

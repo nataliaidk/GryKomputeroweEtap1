@@ -21,5 +21,9 @@ func add_weapon(weapon_data: WeaponData) -> bool:
 	active_weapons.append(weapon_node)
 	return true
 
+func disable_all() -> void:
+	for w in active_weapons:
+		w.timer.stop()
+
 func _upgrade_weapon(weapon: BaseWeapon) -> void:
 	pass

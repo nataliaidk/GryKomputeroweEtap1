@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dned6v81jglad"]
+
+[ext_resource type="PackedScene" uid="uid://cgixofxjk8ylm" path="res://scenes/player/player.tscn" id="1_7h61r"]
+[ext_resource type="PackedScene" uid="uid://c1nbty17pl3sx" path="res://scenes/game/enemy_spawner.tscn" id="2_0sr1o"]
+
+[node name="Game" type="Node2D" unique_id=1073483244]
+y_sort_enabled = true
+
+[node name="Player" parent="." unique_id=1140903298 instance=ExtResource("1_7h61r")]
+
+[node name="EnemySpawner" parent="." unique_id=662883454 instance=ExtResource("2_0sr1o")]
+y_sort_enabled = true

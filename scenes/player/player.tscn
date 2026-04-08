@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cgixofxjk8ylm"]
 
-[ext_resource type="Script" uid="uid://bcrbdmorebsqq" path="res://scripts/player.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://bcrbdmorebsqq" path="res://scripts/player/player.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dqyv1nejjaco1" path="res://assets/ui/healthbar_background.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bu7gkcmm4cjs8" path="res://assets/sprites/Blood_Hunter.png" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://kuheauej3ubv" path="res://assets/ui/healthbar_progress.png" id="3_qlg0r"]
-[ext_resource type="Script" uid="uid://g1dq0i8rmfpm" path="res://scripts/weapon_manager.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://g1dq0i8rmfpm" path="res://scripts/player/weapon_manager.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://b2j8l78ltt3un" path="res://scripts/player/player_leveling.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://ctw5aasp0qrnv" path="res://scripts/player/player_ui.gd" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("2_onrkg")
@@ -240,3 +242,9 @@ shape = SubResource("CapsuleShape2D_b26j0")
 
 [node name="WeaponManager" type="Node2D" parent="." unique_id=101019310]
 script = ExtResource("5_qlg0r")
+
+[node name="PlayerLeveling" type="Node2D" parent="." unique_id=343121902]
+script = ExtResource("6_tuyoq")
+
+[node name="PlayerUI" type="CanvasLayer" parent="." unique_id=513230100]
+script = ExtResource("7_fjrip")

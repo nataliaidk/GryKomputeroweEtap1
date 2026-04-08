@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1nbty17pl3sx"]
 
-[ext_resource type="Script" uid="uid://b62gf5a5jsxiw" path="res://scripts/enemy_spawner.gd" id="1_00s5r"]
+[ext_resource type="Script" uid="uid://b62gf5a5jsxiw" path="res://scripts/game/enemy_spawner.gd" id="1_00s5r"]
 [ext_resource type="PackedScene" uid="uid://bcn8w4co7show" path="res://scenes/enemies/rat.tscn" id="2_devoi"]
 [ext_resource type="PackedScene" uid="uid://cwpu70mh6miqo" path="res://scenes/enemies/huntsman.tscn" id="2_xl0gr"]
 
