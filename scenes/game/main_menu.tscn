@@ -1,20 +1,9 @@
 [gd_scene format=3 uid="uid://cfj3mq8jf72mm"]
 
+[ext_resource type="Script" uid="uid://ctaqj6bbksdw4" path="res://scripts/game/main_menu.gd" id="1_3r4tm"]
 [ext_resource type="Texture2D" uid="uid://v55uu8f17qxi" path="res://assets/ui/graveyard.png" id="1_ngy02"]
 [ext_resource type="FontFile" uid="uid://ch3oxkxxaq75j" path="res://assets/fonts/Gothikka.ttf" id="2_e66b0"]
 [ext_resource type="AudioStream" uid="uid://cakebb2phefj6" path="res://assets/music/Moonlit Melody.mp3" id="3_e66b0"]
-
-[sub_resource type="GDScript" id="GDScript_3r4tm"]
-script/source = "extends Control
-
-
-func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/game/game.tscn\")
-
-
-func _on_exit_pressed() -> void:
-	pass # Replace with function body.
-"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gfgjs"]
 texture = ExtResource("1_ngy02")
@@ -53,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_3r4tm")
+script = ExtResource("1_3r4tm")
 
 [node name="Panel" type="Panel" parent="." unique_id=659651144]
 layout_mode = 1
@@ -136,6 +125,9 @@ text = "Endless Blood"
 stream = ExtResource("3_e66b0")
 volume_db = 6.0
 autoplay = true
+
+[node name="AudioStreamPlayerButton" type="AudioStreamPlayer" parent="." unique_id=1176650924]
+volume_db = 5.0
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
