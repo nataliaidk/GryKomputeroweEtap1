@@ -36,17 +36,11 @@ func _build_ui():
 	hud_box.add_theme_constant_override("separation", 6)
 	hud.add_child(hud_box)
 
-	level_label = Label.new()
-	hud_box.add_child(level_label)
-
 	exp_progress_bar = ProgressBar.new()
 	exp_progress_bar.min_value = 0
 	exp_progress_bar.max_value = 1
 	exp_progress_bar.custom_minimum_size = Vector2(260, 20)
 	hud_box.add_child(exp_progress_bar)
-
-	exp_label = Label.new()
-	hud_box.add_child(exp_label)
 
 	# --- Panel level-up (wyśrodkowany) ---
 	var center := CenterContainer.new()
@@ -116,10 +110,8 @@ func _on_upgrade_applied(_upgrade: Dictionary):
 
 func _refresh_exp_bar():
 	var needed :int = leveling._required_blood(leveling.player_level + 1)
-	level_label.text = "LVL %d" % leveling.player_level
 	exp_progress_bar.max_value = needed
 	exp_progress_bar.value = min(leveling.blood_exp, needed)
-	exp_label.text = "EXP %d / %d" % [leveling.blood_exp, needed]
 
 func _make_icon(icon_cell: Vector2i) -> Texture2D:
 	var tex_size := WEAPONS_TEXTURE.get_size()

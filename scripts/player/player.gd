@@ -63,6 +63,7 @@ func heal(amount: int):
 	health_bar.value = health
 
 func die():
+	GameTimer.stop()
 	audio.stream = die_sound
 	audio.play()
 	is_dead = true
