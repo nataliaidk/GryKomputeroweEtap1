@@ -130,7 +130,8 @@ radius = 16.0
 height = 112.0
 
 [node name="WhipSlash" type="Area2D" unique_id=777547543]
-z_index = 2
+z_index = 1
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_va785")
@@ -146,6 +147,8 @@ animation = &"attack"
 frame = 3
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=242429814]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(87, -6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_7t58a")

@@ -205,6 +205,8 @@ sprite_frames = SubResource("SpriteFrames_ipns3")
 animation = &"walk_down"
 
 [node name="HitboxArea" type="Area2D" parent="." unique_id=1799178899]
+z_index = 1
+y_sort_enabled = true
 collision_layer = 18
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxArea" unique_id=845764093]
