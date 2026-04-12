@@ -272,3 +272,4 @@ script = ExtResource("6_tuyoq")
 script = ExtResource("7_fjrip")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=446460250]
+volume_db = -8.0

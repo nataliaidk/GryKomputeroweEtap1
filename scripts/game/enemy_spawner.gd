@@ -16,8 +16,13 @@ class SpawnEntry:
 @export var huntsman_scene: PackedScene
 @export var rat_scene: PackedScene
 
+@onready var timer: Timer = $Timer
+
 var _table: Array[SpawnEntry] = []
 var _spawn_radius := 900.0
+var base_time := 5.0
+var min_time := 0.3
+var speed := 0.01
 
 func _ready() -> void:
 	_build_table()
@@ -41,6 +46,7 @@ func _on_timer_timeout() -> void:
 	var base_pos := _get_spawn_position(player)
 	for i in range(count):
 		_spawn_one(entry.scene, base_pos, i, count)
+	_update_spawn_rate(t)
 		
 func _pick_entry(elapsed: float) -> SpawnEntry:
 	var pool := _table.filter(func(e): return e.min_time <= elapsed)
@@ -55,9 +61,15 @@ func _pick_entry(elapsed: float) -> SpawnEntry:
 	return pool[-1]
 
 func _get_spawn_position(player: Node2D) -> Vector2:
-	var angle  := randf() * TAU
-	var offset := Vector2(cos(angle), sin(angle)) * _spawn_radius
-	return player.global_position + offset
+	var tries := 0
+	while tries < 10:
+		var angle  := randf() * TAU
+		var offset := Vector2(cos(angle), sin(angle)) * _spawn_radius
+		var pos := player.global_position + offset
+		if pos.x >= -4700 and pos.x <= 4700 and pos.y >= -4700 and pos.y <= 4700:
+			return pos
+		tries += 1
+	return Vector2.ZERO
 
 func _spawn_one(scene: PackedScene, base_pos: Vector2, idx: int, total: int) -> void:
 	var enemy := scene.instantiate()
@@ -72,3 +84,7 @@ func _spawn_one(scene: PackedScene, base_pos: Vector2, idx: int, total: int) -> 
 		offset += Vector2(randf_range(-10, 10), randf_range(-10, 10))
 	enemy.global_position = base_pos + offset
 	add_child(enemy)
+	
+func _update_spawn_rate(t: float) -> void:
+	timer.wait_time = max(min_time, base_time * exp(-speed * t))
+	timer.start()
