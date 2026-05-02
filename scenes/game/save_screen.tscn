@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://p9c4x2g1save01"]
+
+[ext_resource type="Script" path="res://scripts/game/save_screen.gd" id="1_save01"]
+[ext_resource type="FontFile" uid="uid://ch3oxkxxaq75j" path="res://assets/fonts/Gothikka.ttf" id="2_save01"]
+[ext_resource type="AudioStream" uid="uid://cakebb2phefj6" path="res://assets/music/Moonlit Melody.mp3" id="3_save01"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.04, 0.04, 0.08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.14, 0.14, 0.14, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_left = 18
+corner_radius_bottom_right = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+
+[node name="SaveScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_save01")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.04, 0.08, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+offset_left = 42.0
+offset_top = 34.0
+offset_right = -42.0
+offset_bottom = -34.0
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_save01")
+theme_override_font_sizes/font_size = 48
+text = "Save Manager"
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.92, 0.88, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_save01")
+theme_override_font_sizes/font_size = 22
+text = "Save your current character or delete an old slot."
+
+[node name="SlotsPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="SlotsContainer" type="VBoxContainer" parent="VBoxContainer/SlotsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+offset_left = 18.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -18.0
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_save01")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2")
+text = "Back to Menu"
+
+[node name="AudioStreamPlayerButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_save01")
+volume_db = -80.0

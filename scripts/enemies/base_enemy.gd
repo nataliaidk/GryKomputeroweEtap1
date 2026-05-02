@@ -6,6 +6,7 @@ signal died
 @onready var player: Node2D = get_tree().get_first_node_in_group("player")
 @export var blood_exp_reward := 1
 const DAMAGE_FONT: FontFile = preload("res://assets/fonts/Gothikka.ttf")
+const BLOOD_TEXTURE: Texture2D = preload("res://assets/blood/1_100x100px.png")
 
 var speed := 100.0
 var max_health := 100
@@ -14,6 +15,11 @@ var damage := 10
 var blood_lifetime := 0.4
 var is_dead := false
 var _player_in_range: Node2D = null
+
+# Knockback
+var knockback_velocity := Vector2.ZERO
+var knockback_duration := 0.0
+var knockback_speed := 300.0
 
 var xp_gem_table: Array = [
 	[XpGem.Type.NONE,   40],
@@ -31,10 +37,20 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if is_dead or player == null:
 		return
-	var dir := global_position.direction_to(player.global_position)
-	velocity = dir * speed
+	
+	# Handle knockback
+	if knockback_duration > 0:
+		knockback_duration -= _delta
+		# Knockback only affects horizontal movement
+		velocity.x = knockback_velocity.x
+		var dir := global_position.direction_to(player.global_position)
+		velocity.y = dir.y * speed
+	else:
+		var dir := global_position.direction_to(player.global_position)
+		velocity = dir * speed
+	
 	move_and_slide()
-	_update_animation(dir)
+	_update_animation(velocity.normalized())
 
 # ── wirtualne metody  ────────────────────────────────────────────────────────
 
@@ -56,6 +72,12 @@ func take_damage(attack: Attack) -> void:
 	health -= attack.damage
 	_spawn_blood(blood_lifetime * 0.8, 16.0)
 	flash_red()
+	
+	# Apply knockback
+	var knockback_dir := global_position.direction_to(attack.position).normalized()
+	knockback_velocity = knockback_dir * knockback_speed
+	knockback_duration = 0.2
+	
 	if health <= 0:
 		die()
 
@@ -71,6 +93,7 @@ func die() -> void:
 	$DamageTimer.stop()
 	player.add_kill()
 	_spawn_blood(blood_lifetime * 1.3, 35.0)
+	_spawn_blood_decal()
 	_drop_xp_gems()
 	queue_free()
 
@@ -150,6 +173,27 @@ func _spawn_blood(lifetime: float, vel_min: float) -> void:
 	await get_tree().create_timer(p.lifetime + 0.3).timeout
 	if is_instance_valid(p):
 		p.queue_free()
+
+func _spawn_blood_decal() -> void:
+	var decal := Node2D.new()
+	decal.global_position = global_position
+	decal.rotation = randf_range(0, TAU)
+	
+	var sprite := Sprite2D.new()
+	sprite.centered = true
+	
+	# Create AtlasTexture to extract the 2nd row, 1st column from the sprite sheet
+	var atlas := AtlasTexture.new()
+	atlas.atlas = BLOOD_TEXTURE
+	atlas.region = Rect2(0, 100, 100, 100)  # 2nd row, 1st column
+	
+	sprite.texture = atlas
+	sprite.scale = Vector2.ONE * randf_range(0.7, 1.2)
+	sprite.z_index = 5
+	sprite.modulate.a = 0.8
+	
+	decal.add_child(sprite)
+	get_parent().add_child(decal)
 
 func _show_damage_number(amount: int) -> void:
 	if amount <= 0:

@@ -19,6 +19,7 @@ config/icon="uid://lwbwa5xkwmhc"
 
 GameTimer="*uid://cti5ikcpsrf4t"
 GameData="*uid://dn87tr2u3j40f"
+PlayerStats="*res://scripts/game/player_stats.gd"
 
 [display]
 

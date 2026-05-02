@@ -20,14 +20,32 @@ var facing_direction := Vector2.DOWN
 var facing_direction_x := 1
 var is_attacking := false
 var hp_regen := 1
+var _gold_per_second := 1
 
 func _ready():
+	# Wait for autoloads to initialize
+	await get_tree().process_frame
+	await get_tree().process_frame  # Extra frame for autoloads
+	
+	# Verify PlayerStats is available
+	if not is_instance_valid(PlayerStats):
+		print("Warning: PlayerStats autoload not available yet")
+		return
+	
+	# Load stats from PlayerStats global
+	max_health = PlayerStats.max_health
+	health = max_health
+	
 	camera.make_current()
 	health_bar.value = health
 	health_bar.max_value = max_health
 	var whip_data = load("res://data/weapons/whip_data.tres")
 	weapon_manager.add_weapon(whip_data)
 	GameTimer.start()
+	
+	# Listen for stat changes (check if not already connected)
+	if not PlayerStats.stats_changed.is_connected(_on_stats_changed):
+		PlayerStats.stats_changed.connect(_on_stats_changed)
 
 func _physics_process(_delta):
 	if is_dead:
@@ -93,9 +111,17 @@ func gain_xp(amount: int):
 		return
 	exp_gained.emit(amount)
 
+<<<<<<< HEAD
 func apply_bonus(bonus: ItemLevelData) -> void:
 	hp_regen = 1 + bonus.hp_regen
 
 func _on_heal_timer_timeout() -> void:
 	health = min(max_health, health + hp_regen)
+=======
+func _on_stats_changed() -> void:
+	# Sync updated stats from PlayerStats
+	max_health = PlayerStats.max_health
+	health = min(health, max_health)
+	health_bar.max_value = max_health
+>>>>>>> 22483a13b9dc026c66e864aab51d23cb837b8375
 	health_bar.value = health

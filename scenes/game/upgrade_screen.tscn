@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://dlc8ifst8c0ho"]
+
+[ext_resource type="Script" path="res://scripts/game/upgrade_screen.gd" id="1_h6b3j"]
+[ext_resource type="FontFile" uid="uid://ch3oxkxxaq75j" path="res://assets/fonts/Gothikka.ttf" id="2_1fj2j"]
+[ext_resource type="AudioStream" uid="uid://cakebb2phefj6" path="res://assets/music/Moonlit Melody.mp3" id="3_1fj2j"]
+[ext_resource type="Texture2D" path="res://assets/sprites/Blood_Hunter.png" id="4_hunter"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hunter_preview"]
+atlas = ExtResource("4_hunter")
+region = Rect2(0, 822, 218, 274)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.08, 0.08, 0.08, 0.92)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[node name="UpgradeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h6b3j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.04, 0.08, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+offset_left = 42.0
+offset_top = 34.0
+offset_right = -42.0
+offset_bottom = -34.0
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 48
+text = "Character Upgrades"
+
+[node name="Content" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="StatsPanel" type="PanelContainer" parent="VBoxContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="StatsBox" type="VBoxContainer" parent="VBoxContainer/Content/StatsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 18
+offset_left = 22.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = -22.0
+
+[node name="GoldLabel" type="Label" parent="VBoxContainer/Content/StatsPanel/StatsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.22, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 36
+text = "Gold: 200"
+
+[node name="InfoLabel" type="Label" parent="VBoxContainer/Content/StatsPanel/StatsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.88, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 22
+text = "Upgrade the hunter between runs."
+
+[node name="HealthRow" type="HBoxContainer" parent="VBoxContainer/Content/StatsPanel/StatsBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/Content/StatsPanel/StatsBox/HealthRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 32
+text = "HP: 100"
+
+[node name="UpgradeHealthBtn" type="Button" parent="VBoxContainer/Content/StatsPanel/StatsBox/HealthRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3")
+text = "Upgrade +10 HP / 50 gold"
+
+[node name="DamageRow" type="HBoxContainer" parent="VBoxContainer/Content/StatsPanel/StatsBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="DamageLabel" type="Label" parent="VBoxContainer/Content/StatsPanel/StatsBox/DamageRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 32
+text = "DMG: 10"
+
+[node name="UpgradeDamageBtn" type="Button" parent="VBoxContainer/Content/StatsPanel/StatsBox/DamageRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3")
+text = "Upgrade +5 DMG / 50 gold"
+
+[node name="BackButton" type="Button" parent="VBoxContainer/Content/StatsPanel/StatsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3")
+text = "Back to Menu"
+
+[node name="PreviewPanel" type="PanelContainer" parent="VBoxContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="PreviewBox" type="VBoxContainer" parent="VBoxContainer/Content/PreviewPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+offset_left = 22.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = -22.0
+
+[node name="PreviewLabel" type="Label" parent="VBoxContainer/Content/PreviewPanel/PreviewBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1fj2j")
+theme_override_font_sizes/font_size = 28
+text = "Hunter"
+
+[node name="CharacterPreview" type="TextureRect" parent="VBoxContainer/Content/PreviewPanel/PreviewBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(360, 360)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_hunter_preview")
+stretch_mode = 6
+
+[node name="AudioStreamPlayerButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1fj2j")
+volume_db = -80.0
