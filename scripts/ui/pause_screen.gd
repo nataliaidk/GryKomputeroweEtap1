@@ -24,7 +24,7 @@ func _on_hover():
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	queue_free()
-	get_tree().change_scene_to_file("res://scenes/game/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

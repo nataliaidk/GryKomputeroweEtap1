@@ -30,10 +30,10 @@ func _ready():
 	gold_label.text = str(SaveManager.gold)
 
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game/hero_selection.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/hero_selection.tscn")
 
 func _on_upgrade_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game/upgrade_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/upgrade_screen.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

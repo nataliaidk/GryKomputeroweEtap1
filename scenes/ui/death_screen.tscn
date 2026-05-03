@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vkfx53p8na5r"]
 
-[ext_resource type="Script" uid="uid://dcrooow8f1i2h" path="res://scripts/game/death_screen.gd" id="1_gbdnc"]
+[ext_resource type="Script" uid="uid://dcrooow8f1i2h" path="res://scripts/ui/death_screen.gd" id="1_gbdnc"]
 [ext_resource type="FontFile" uid="uid://ch3oxkxxaq75j" path="res://assets/fonts/Gothikka.ttf" id="2_gf2gt"]
 [ext_resource type="Texture2D" uid="uid://7v62mahm2sut" path="res://assets/ui/skull.png" id="3_aae5y"]
 [ext_resource type="AudioStream" uid="uid://cy54opqcn65xb" path="res://assets/sounds/You Died.mp3" id="3_gf2gt"]

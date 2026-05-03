@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4yqx8nujhcgk"
-path="res://.godot/imported/Slash.png-afef6f0d7b77a2fd5e9b2ec29d18aa10.ctex"
+uid="uid://bu7gkcmm4cjs8"
+path="res://.godot/imported/Blood_Hunter.png-14dc92222fc8fd2cc3ad1578fd413bac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Slash.png"
-dest_files=["res://.godot/imported/Slash.png-afef6f0d7b77a2fd5e9b2ec29d18aa10.ctex"]
+source_file="res://assets/heroes/Blood_Hunter.png"
+dest_files=["res://.godot/imported/Blood_Hunter.png-14dc92222fc8fd2cc3ad1578fd413bac.ctex"]
 
 [params]
 

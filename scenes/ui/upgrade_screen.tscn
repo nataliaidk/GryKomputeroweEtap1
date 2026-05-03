@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlc8ifst8c0ho"]
 
-[ext_resource type="Script" uid="uid://coq2hwqoc8614" path="res://scripts/game/upgrade_screen.gd" id="1_h6b3j"]
+[ext_resource type="Script" uid="uid://coq2hwqoc8614" path="res://scripts/ui/upgrade_screen.gd" id="1_h6b3j"]
 [ext_resource type="FontFile" uid="uid://ch3oxkxxaq75j" path="res://assets/fonts/Gothikka.ttf" id="2_1fj2j"]
 [ext_resource type="Texture2D" uid="uid://v55uu8f17qxi" path="res://assets/ui/graveyard.png" id="2_27eun"]
 [ext_resource type="AudioStream" uid="uid://cakebb2phefj6" path="res://assets/music/Moonlit Melody.mp3" id="3_1fj2j"]

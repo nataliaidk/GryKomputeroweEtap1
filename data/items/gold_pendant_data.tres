@@ -1,31 +1,31 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://xvu2whvkfl14"]
 
-[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/weapons/item_level_data.gd" id="1_8g6rb"]
+[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/items/item_level_data.gd" id="1_hy4io"]
 [ext_resource type="Texture2D" uid="uid://dqaw2n8k7mm24" path="res://assets/items/gold_pendant.png" id="2_1026o"]
-[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/weapons/item_data.gd" id="2_hy4io"]
+[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/items/item_data.gd" id="2_hy4io"]
 
 [sub_resource type="Resource" id="Resource_r1vwe"]
-script = ExtResource("1_8g6rb")
+script = ExtResource("1_hy4io")
 gold_gain = 1
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_dssfo"]
-script = ExtResource("1_8g6rb")
+script = ExtResource("1_hy4io")
 gold_gain = 2
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_f3qqd"]
-script = ExtResource("1_8g6rb")
+script = ExtResource("1_hy4io")
 gold_gain = 3
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_yctef"]
-script = ExtResource("1_8g6rb")
+script = ExtResource("1_hy4io")
 gold_gain = 4
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_j46cq"]
-script = ExtResource("1_8g6rb")
+script = ExtResource("1_hy4io")
 gold_gain = 5
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
@@ -33,5 +33,5 @@ metadata/_custom_type_script = "uid://br4dsciwujuog"
 script = ExtResource("2_hy4io")
 name = "Gold Pendant"
 icon = ExtResource("2_1026o")
-bonuses = Array[ExtResource("1_8g6rb")]([SubResource("Resource_r1vwe"), SubResource("Resource_dssfo"), SubResource("Resource_f3qqd"), SubResource("Resource_yctef"), SubResource("Resource_j46cq")])
+bonuses = Array[ExtResource("1_hy4io")]([SubResource("Resource_r1vwe"), SubResource("Resource_dssfo"), SubResource("Resource_f3qqd"), SubResource("Resource_yctef"), SubResource("Resource_j46cq")])
 metadata/_custom_type_script = "uid://c87n8phc0rbrv"

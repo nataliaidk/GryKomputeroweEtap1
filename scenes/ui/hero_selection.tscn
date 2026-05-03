@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwm6y2j8fuwvn"]
 
 [ext_resource type="Texture2D" uid="uid://v55uu8f17qxi" path="res://assets/ui/graveyard.png" id="1_kqmff"]
-[ext_resource type="Script" uid="uid://dppn11qi7bssd" path="res://scripts/game/hero_selection.gd" id="1_s0o87"]
+[ext_resource type="Script" uid="uid://dppn11qi7bssd" path="res://scripts/ui/hero_selection.gd" id="1_s0o87"]
 [ext_resource type="FontFile" uid="uid://ch3oxkxxaq75j" path="res://assets/fonts/Gothikka.ttf" id="2_s0o87"]
 [ext_resource type="Script" uid="uid://cn2nic8goiihk" path="res://data/heroes/hero_data.gd" id="2_w3nua"]
 [ext_resource type="Resource" uid="uid://okpub58oe5y4" path="res://data/heroes/blood_hunter.tres" id="3_10y43"]

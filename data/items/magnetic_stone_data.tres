@@ -1,31 +1,31 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bc7yedjrnt15p"]
 
-[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/weapons/item_level_data.gd" id="1_d3tp7"]
+[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/items/item_level_data.gd" id="1_s5ekn"]
 [ext_resource type="Texture2D" uid="uid://d1dmys7ttyowb" path="res://assets/items/magnetic_stone.png" id="2_cyc8g"]
-[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/weapons/item_data.gd" id="2_s5ekn"]
+[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/items/item_data.gd" id="2_s5ekn"]
 
 [sub_resource type="Resource" id="Resource_316i4"]
-script = ExtResource("1_d3tp7")
+script = ExtResource("1_s5ekn")
 pickup_range = 1
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_1dbct"]
-script = ExtResource("1_d3tp7")
+script = ExtResource("1_s5ekn")
 pickup_range = 2
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_5wiix"]
-script = ExtResource("1_d3tp7")
+script = ExtResource("1_s5ekn")
 pickup_range = 3
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_7wr1s"]
-script = ExtResource("1_d3tp7")
+script = ExtResource("1_s5ekn")
 pickup_range = 4
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_hvca1"]
-script = ExtResource("1_d3tp7")
+script = ExtResource("1_s5ekn")
 pickup_range = 5
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
@@ -33,5 +33,5 @@ metadata/_custom_type_script = "uid://br4dsciwujuog"
 script = ExtResource("2_s5ekn")
 name = "Magnetic Stone"
 icon = ExtResource("2_cyc8g")
-bonuses = Array[ExtResource("1_d3tp7")]([SubResource("Resource_316i4"), SubResource("Resource_1dbct"), SubResource("Resource_5wiix"), SubResource("Resource_7wr1s"), SubResource("Resource_hvca1")])
+bonuses = Array[ExtResource("1_s5ekn")]([SubResource("Resource_316i4"), SubResource("Resource_1dbct"), SubResource("Resource_5wiix"), SubResource("Resource_7wr1s"), SubResource("Resource_hvca1")])
 metadata/_custom_type_script = "uid://c87n8phc0rbrv"

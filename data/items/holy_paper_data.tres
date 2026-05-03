@@ -1,31 +1,31 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cs6wsqi01y68g"]
 
-[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/weapons/item_level_data.gd" id="1_l2duw"]
+[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/items/item_level_data.gd" id="1_8vqdy"]
 [ext_resource type="Texture2D" uid="uid://drhq6ub2rorx5" path="res://assets/items/holy_paper.png" id="2_7voih"]
-[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/weapons/item_data.gd" id="2_8vqdy"]
+[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/items/item_data.gd" id="2_8vqdy"]
 
 [sub_resource type="Resource" id="Resource_exmlb"]
-script = ExtResource("1_l2duw")
+script = ExtResource("1_8vqdy")
 holy_damage = 1
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_vk8ec"]
-script = ExtResource("1_l2duw")
+script = ExtResource("1_8vqdy")
 holy_damage = 2
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_b5gxc"]
-script = ExtResource("1_l2duw")
+script = ExtResource("1_8vqdy")
 holy_damage = 3
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_nmpk4"]
-script = ExtResource("1_l2duw")
+script = ExtResource("1_8vqdy")
 holy_damage = 4
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_kvoqp"]
-script = ExtResource("1_l2duw")
+script = ExtResource("1_8vqdy")
 holy_damage = 5
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
@@ -33,5 +33,5 @@ metadata/_custom_type_script = "uid://br4dsciwujuog"
 script = ExtResource("2_8vqdy")
 name = "Holy Paper"
 icon = ExtResource("2_7voih")
-bonuses = Array[ExtResource("1_l2duw")]([SubResource("Resource_exmlb"), SubResource("Resource_vk8ec"), SubResource("Resource_b5gxc"), SubResource("Resource_nmpk4"), SubResource("Resource_kvoqp")])
+bonuses = Array[ExtResource("1_8vqdy")]([SubResource("Resource_exmlb"), SubResource("Resource_vk8ec"), SubResource("Resource_b5gxc"), SubResource("Resource_nmpk4"), SubResource("Resource_kvoqp")])
 metadata/_custom_type_script = "uid://c87n8phc0rbrv"

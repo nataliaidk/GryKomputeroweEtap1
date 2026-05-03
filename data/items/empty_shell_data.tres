@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dbadhxn1t56mi"]
 
-[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/weapons/item_level_data.gd" id="1_fgnly"]
+[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/items/item_level_data.gd" id="1_fgnly"]
 [ext_resource type="Texture2D" uid="uid://bklae034yu5g2" path="res://assets/items/empty_shell.png" id="2_6t2l6"]
-[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/weapons/item_data.gd" id="3_f5ila"]
+[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/items/item_data.gd" id="3_f5ila"]
 
 [sub_resource type="Resource" id="Resource_41ci7"]
 script = ExtResource("1_fgnly")

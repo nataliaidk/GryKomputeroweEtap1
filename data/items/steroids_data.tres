@@ -1,31 +1,31 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dkshs5g7mw6ck"]
 
-[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/weapons/item_level_data.gd" id="1_iuqlo"]
-[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/weapons/item_data.gd" id="2_474sm"]
+[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/items/item_level_data.gd" id="1_474sm"]
+[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/items/item_data.gd" id="2_474sm"]
 [ext_resource type="Texture2D" uid="uid://b2bff5wb7iwxn" path="res://assets/items/steroids.png" id="2_bv6jt"]
 
 [sub_resource type="Resource" id="Resource_w2bel"]
-script = ExtResource("1_iuqlo")
+script = ExtResource("1_474sm")
 attack_size = 1
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_hiakf"]
-script = ExtResource("1_iuqlo")
+script = ExtResource("1_474sm")
 attack_size = 2
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_540kx"]
-script = ExtResource("1_iuqlo")
+script = ExtResource("1_474sm")
 attack_size = 3
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_kiog2"]
-script = ExtResource("1_iuqlo")
+script = ExtResource("1_474sm")
 attack_size = 4
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_jd6mi"]
-script = ExtResource("1_iuqlo")
+script = ExtResource("1_474sm")
 attack_size = 5
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
@@ -33,5 +33,5 @@ metadata/_custom_type_script = "uid://br4dsciwujuog"
 script = ExtResource("2_474sm")
 name = "Steroids"
 icon = ExtResource("2_bv6jt")
-bonuses = Array[ExtResource("1_iuqlo")]([SubResource("Resource_w2bel"), SubResource("Resource_hiakf"), SubResource("Resource_540kx"), SubResource("Resource_kiog2"), SubResource("Resource_jd6mi")])
+bonuses = Array[ExtResource("1_474sm")]([SubResource("Resource_w2bel"), SubResource("Resource_hiakf"), SubResource("Resource_540kx"), SubResource("Resource_kiog2"), SubResource("Resource_jd6mi")])
 metadata/_custom_type_script = "uid://c87n8phc0rbrv"

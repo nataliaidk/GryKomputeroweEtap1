@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2teywiei3q4g"]
 
-[ext_resource type="Script" uid="uid://jnedq4p7ecox" path="res://scripts/game/pause_screen.gd" id="1_si62t"]
+[ext_resource type="Script" uid="uid://jnedq4p7ecox" path="res://scripts/ui/pause_screen.gd" id="1_si62t"]
 [ext_resource type="FontFile" uid="uid://ch3oxkxxaq75j" path="res://assets/fonts/Gothikka.ttf" id="2_w8b6s"]
 [ext_resource type="Texture2D" uid="uid://cvk4260ljo7d4" path="res://assets/ui/pause.png" id="3_ywadr"]
 

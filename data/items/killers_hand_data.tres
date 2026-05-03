@@ -1,31 +1,31 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://6ef8heodht4k"]
 
-[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/weapons/item_level_data.gd" id="1_wxt8c"]
-[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/weapons/item_data.gd" id="2_25fn5"]
+[ext_resource type="Script" uid="uid://br4dsciwujuog" path="res://scripts/items/item_level_data.gd" id="1_25fn5"]
+[ext_resource type="Script" uid="uid://c87n8phc0rbrv" path="res://scripts/items/item_data.gd" id="2_25fn5"]
 [ext_resource type="Texture2D" uid="uid://dqdo1oidqd7uf" path="res://assets/items/killers_hand.png" id="2_nqdia"]
 
 [sub_resource type="Resource" id="Resource_bs0k7"]
-script = ExtResource("1_wxt8c")
+script = ExtResource("1_25fn5")
 attack_speed = 1
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_gobh7"]
-script = ExtResource("1_wxt8c")
+script = ExtResource("1_25fn5")
 attack_speed = 2
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_rmrsm"]
-script = ExtResource("1_wxt8c")
+script = ExtResource("1_25fn5")
 attack_speed = 3
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_ucfk2"]
-script = ExtResource("1_wxt8c")
+script = ExtResource("1_25fn5")
 attack_speed = 4
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
 [sub_resource type="Resource" id="Resource_betai"]
-script = ExtResource("1_wxt8c")
+script = ExtResource("1_25fn5")
 attack_speed = 5
 metadata/_custom_type_script = "uid://br4dsciwujuog"
 
@@ -33,5 +33,5 @@ metadata/_custom_type_script = "uid://br4dsciwujuog"
 script = ExtResource("2_25fn5")
 name = "Killer's Hand"
 icon = ExtResource("2_nqdia")
-bonuses = Array[ExtResource("1_wxt8c")]([SubResource("Resource_bs0k7"), SubResource("Resource_gobh7"), SubResource("Resource_rmrsm"), SubResource("Resource_ucfk2"), SubResource("Resource_betai")])
+bonuses = Array[ExtResource("1_25fn5")]([SubResource("Resource_bs0k7"), SubResource("Resource_gobh7"), SubResource("Resource_rmrsm"), SubResource("Resource_ucfk2"), SubResource("Resource_betai")])
 metadata/_custom_type_script = "uid://c87n8phc0rbrv"

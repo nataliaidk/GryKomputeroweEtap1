@@ -96,7 +96,7 @@ func die():
 	weapon_manager.disable_all()
 	sprite.play("die")
 	await sprite.animation_finished
-	get_tree().change_scene_to_file("res://scenes/game/death_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/ui/death_screen.tscn")
 
 func add_kill():
 	$PlayerHud.add_kill()

@@ -1,6 +1,6 @@
 extends Node2D
 
-const PAUSE_SCENE := preload("res://scenes/game/pause_screen.tscn")
+const PAUSE_SCENE := preload("res://scenes/ui/pause_screen.tscn")
 
 const TRACKS = [
 	preload("res://assets/music/Before Concession.mp3"),
