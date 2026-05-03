@@ -7,16 +7,29 @@ var _current_choices: Array[Dictionary] = []
 @onready var leveling       = get_parent().get_node("LevelManager")
 @onready var audioPlayer    = get_parent().get_node("LevelUpAudioPlayer")
 @onready var ui_hover_audio = get_parent().get_node("ButtonsAudioPlayer")
-
+@onready var pass_button: Button =  %PassButton
 @onready var level_up_panel: PanelContainer = %LevelUpPanel
 @onready var level_title: Label             = %LevelTitle
 @onready var level_up_buttons: Array[Button] = [
-	%ChoiceButton0, %ChoiceButton1, %ChoiceButton2
+	%ChoiceButton1, %ChoiceButton2, %ChoiceButton3
+]
+@onready var name_labels: Array[Label] = [
+	%NameLabel1, %NameLabel2, %NameLabel3
+]
+@onready var new_labels: Array[Label] = [
+	%NewLabel1, %NewLabel2, %NewLabel3
+]
+@onready var stats_labels: Array[Label] = [
+	%StatsLabel1, %StatsLabel2, %StatsLabel3
+]
+@onready var icons: Array[TextureRect] = [
+	%Icon1, %Icon2, %Icon3
 ]
 
 func _ready():
 	ui_hover_audio.stream = HOVER_SOUND
 	leveling.level_up_ready.connect(_on_level_up_ready)
+	pass_button.pressed.connect(_on_pass_pressed)
 
 	for i in range(level_up_buttons.size()):
 		if i > 0:
@@ -27,6 +40,8 @@ func _ready():
 		level_up_buttons[i].focus_entered.connect(_on_ui_hover)
 		level_up_buttons[i].pressed.connect(_on_choice_pressed.bind(i))
 
+	pass_button.mouse_entered.connect(_on_ui_hover)
+	pass_button.focus_entered.connect(_on_ui_hover)
 	level_up_panel.visible = false
 
 func _on_level_up_ready(choices: Array[Dictionary]):
@@ -42,21 +57,24 @@ func _on_level_up_ready(choices: Array[Dictionary]):
 		return
 
 	for i in range(level_up_buttons.size()):
-		if i >= choices.size():
-			level_up_buttons[i].visible = false
+		var has_choice := i < choices.size()
+		level_up_buttons[i].visible = has_choice
+		name_labels[i].visible     = has_choice
+		new_labels[i].visible      = has_choice
+		stats_labels[i].visible    = has_choice
+		icons[i].visible           = has_choice
+
+		if not has_choice:
 			continue
 
-		level_up_buttons[i].visible = true
 		var u: Dictionary = choices[i]
-		var is_new: bool = u.get("is_new", false)
-		var header := "NEW" if is_new else _to_roman(u["level"])
+		var is_new: bool  = u.get("is_new", false)
 
-		level_up_buttons[i].text = "%s\n%s\n%s" % [
-			u["name"],
-			header,
-			_format_bonus(u["bonus_preview"])
-		]
-		level_up_buttons[i].icon = u["icon"]
+		name_labels[i].text = "%s %s" % [u["name"], _to_roman(u["level"])]
+		new_labels[i].text  = "NEW" if is_new else ""
+		new_labels[i].visible = is_new
+		stats_labels[i].text = _format_bonus(u["bonus_preview"])
+		icons[i].texture     = u["icon"]
 
 	level_up_panel.visible = true
 	get_tree().paused = true
@@ -68,11 +86,17 @@ func _on_choice_pressed(index: int):
 	get_tree().paused = false
 	leveling.on_upgrade_chosen(index, _current_choices)
 
+func _on_pass_pressed():
+	level_up_panel.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	get_tree().paused = false
+	leveling.on_upgrade_chosen(-1, _current_choices)
+
 func _on_ui_hover() -> void:
 	if ui_hover_audio.playing:
 		ui_hover_audio.stop()
 	ui_hover_audio.play()
-	
+
 func _format_bonus(bonus: ItemLevelData) -> String:
 	var parts: Array[String] = []
 

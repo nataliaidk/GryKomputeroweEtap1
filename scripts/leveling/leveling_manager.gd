@@ -37,11 +37,12 @@ func _try_trigger_level_up():
 	level_up_ready.emit(choices)
 
 func on_upgrade_chosen(choice_index: int, choices: Array[Dictionary]):
-	if choice_index < 0 or choice_index >= choices.size():
-		return
-	var chosen := choices[choice_index]
-	_apply_choice(chosen)
-	_finish_level_up(chosen)
+	if choice_index >= 0 and choice_index < choices.size():
+		var chosen := choices[choice_index]
+		_apply_choice(chosen)
+		_finish_level_up(chosen)
+	else:
+		_finish_level_up({})
 
 func _apply_choice(choice: Dictionary):
 	var item: ItemData = choice.get("item", null)
